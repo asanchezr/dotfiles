@@ -25,19 +25,23 @@ RUN \
   git clone --depth=1 https://github.com/asanchezr/bash-git-prompt.git /tmp/bash-git-prompt && \
   cp -R /tmp/bash-git-prompt /root/.bash-git-prompt && \
   cp -R /tmp/bash-git-prompt ${SERVICE_HOME}/.bash-git-prompt && \
-  echo -e "\n# Load git-prompt\n[ -f /root/.bash-git-prompt/git-prompt.sh  ] && source /root/.bash-git-prompt/git-prompt.sh" >> /root/.bashrc && \
-  echo -e "\n# Load bash-completion\n[ -f /usr/share/bash-completion/bash_completion  ] && source /usr/share/bash-completion/bash_completion" >> /root/.bashrc && \
   chown -R ${SERVICE_USER}:${SERVICE_USER} ${SERVICE_HOME} && \
   sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd && \
-  apk del git tzdata && \
+  apk del tzdata && \
   rm -rf /tmp/{.}* /tmp/*
+
+RUN \
+  echo -e "\n[ -f /root/.bashrc  ] && source /root/.bashrc" >> /root/.bash_profile && \
+  echo -e "\n# Load git-prompt\n[ -f /root/.bash-git-prompt/git-prompt.sh  ] && source /root/.bash-git-prompt/git-prompt.sh" >> /root/.bashrc && \
+  echo -e "\n# Load bash-completion\n[ -f /usr/share/bash-completion/bash_completion  ] && source /usr/share/bash-completion/bash_completion" >> /root/.bashrc
 
 USER ${SERVICE_USER}
 
 WORKDIR ${SERVICE_HOME}
 
 RUN \
-  echo -e "\n# Load git-prompt\n[ -f ${SERVICE_HOME}/.bash-git-prompt/git-prompt.sh  ] && source /root/.bash-git-prompt/git-prompt.sh" >> ${SERVICE_HOME}/.bashrc && \
+  echo -e "\n[ -f ${SERVICE_HOME}/.bashrc  ] && source ${SERVICE_HOME}/.bashrc" >> ${SERVICE_HOME}/.bash_profile && \
+  echo -e "\n# Load git-prompt\n[ -f ${SERVICE_HOME}/.bash-git-prompt/git-prompt.sh  ] && source ${SERVICE_HOME}/.bash-git-prompt/git-prompt.sh" >> ${SERVICE_HOME}/.bashrc && \
   echo -e "\n# Load bash-completion\n[ -f /usr/share/bash-completion/bash_completion  ] && source /usr/share/bash-completion/bash_completion" >> ${SERVICE_HOME}/.bashrc
 
 ENTRYPOINT [ "/usr/bin/dumb-init", "bash" ]
