@@ -32,8 +32,10 @@ RUN \
 
 RUN \
   echo -e "\n[ -f /root/.bashrc  ] && source /root/.bashrc" >> /root/.bash_profile && \
-  echo -e "\n# Load git-prompt\n[ -f /root/.bash-git-prompt/git-prompt.sh  ] && source /root/.bash-git-prompt/git-prompt.sh" >> /root/.bashrc && \
-  echo -e "\n# Load bash-completion\n[ -f /usr/share/bash-completion/bash_completion  ] && source /usr/share/bash-completion/bash_completion" >> /root/.bashrc
+  echo -e "\n# Load git-prompt\n[ -f /root/.bash-git-prompt/.bash_aliases ] && source /root/.bash-git-prompt/.bash_aliases" >> /root/.bashrc && \
+  echo -e "\n# Load git-prompt\n[ -f /root/.bash-git-prompt/docker_aliases.sh ] && source /root/.bash-git-prompt/docker_aliases.sh" >> /root/.bashrc && \
+  echo -e "\n# Load git-prompt\n[ -f /root/.bash-git-prompt/git-prompt.sh ] && source /root/.bash-git-prompt/git-prompt.sh" >> /root/.bashrc && \
+  echo -e "\n# Load bash-completion\n[ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion" >> /root/.bashrc
 
 USER ${SERVICE_USER}
 
@@ -41,7 +43,9 @@ WORKDIR ${SERVICE_HOME}
 
 RUN \
   echo -e "\n[ -f ${SERVICE_HOME}/.bashrc  ] && source ${SERVICE_HOME}/.bashrc" >> ${SERVICE_HOME}/.bash_profile && \
-  echo -e "\n# Load git-prompt\n[ -f ${SERVICE_HOME}/.bash-git-prompt/git-prompt.sh  ] && source ${SERVICE_HOME}/.bash-git-prompt/git-prompt.sh" >> ${SERVICE_HOME}/.bashrc && \
-  echo -e "\n# Load bash-completion\n[ -f /usr/share/bash-completion/bash_completion  ] && source /usr/share/bash-completion/bash_completion" >> ${SERVICE_HOME}/.bashrc
+  echo -e "\n# Load git-prompt\n[ -f ${SERVICE_HOME}/.bash-git-prompt/.bash_aliases ] && source ${SERVICE_HOME}/.bash-git-prompt/.bash_aliases" >> ${SERVICE_HOME}/.bashrc && \
+  echo -e "\n# Load git-prompt\n[ -f ${SERVICE_HOME}/.bash-git-prompt/docker_aliases.sh ] && source ${SERVICE_HOME}/.bash-git-prompt/docker_aliases.sh" >> ${SERVICE_HOME}/.bashrc && \
+  echo -e "\n# Load git-prompt\n[ -f ${SERVICE_HOME}/.bash-git-prompt/git-prompt.sh ] && source ${SERVICE_HOME}/.bash-git-prompt/git-prompt.sh" >> ${SERVICE_HOME}/.bashrc && \
+  echo -e "\n# Load bash-completion\n[ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion" >> ${SERVICE_HOME}/.bashrc
 
 ENTRYPOINT [ "/usr/bin/dumb-init", "bash" ]
