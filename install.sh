@@ -4,7 +4,9 @@
 CONFIG_FILE=.bashrc
 
 function install() {
-    echo -e "\n[ -f ~/.bash-git-prompt/.bash_aliases ] && source ~/.bash-git-prompt/.bash_aliases" >> "$HOME/$CONFIG_FILE"
+    echo -e "\n" >> "$HOME/$CONFIG_FILE"
+    echo -e "[ -f ~/.bash-git-prompt/.bash_aliases ] && source ~/.bash-git-prompt/.bash_aliases" >> "$HOME/$CONFIG_FILE"
+    echo -e "[ -f ~/.bash-git-prompt/docker_aliases.sh ] && source ~/.bash-git-prompt/docker_aliases.sh" >> "$HOME/$CONFIG_FILE"
     echo -e "[ -f ~/.bash-git-prompt/git-prompt.sh ] && source ~/.bash-git-prompt/git-prompt.sh" >> "$HOME/$CONFIG_FILE"
 }
 
