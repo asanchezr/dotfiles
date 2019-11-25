@@ -20,8 +20,8 @@ alias rd='rmdir'
 alias git-log="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold cyan)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # docker-compose
-alias dc="docker-compose"
-alias dc-logs="docker-compose logs -f --tail 100"
+alias dcp="docker-compose"
+alias dcp-logs="docker-compose logs -f --tail 100"
 
 # custom internal tools
 alias journal='./journal.sh'
