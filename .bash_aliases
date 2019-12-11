@@ -18,6 +18,7 @@ alias rd='rmdir'
 
 # git
 alias git-log="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold cyan)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias git-cleanup="git branch -vv | grep origin | grep gone | awk '{print $1}' | xargs -L 1 git branch -D"
 
 # docker-compose
 alias dcp="docker-compose"
