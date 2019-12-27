@@ -1,7 +1,7 @@
 #!/bin/bash
 # bash-git-prompt installer
 
-CONFIG_FILE=.bashrc
+CONFIG_FILE=.bash_profile
 
 function install() {
     echo -e "\n" >> "$HOME/$CONFIG_FILE"
