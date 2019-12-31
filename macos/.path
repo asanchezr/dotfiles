@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# use homebrew packages by default
+export PATH="/usr/local/bin:$PATH"
