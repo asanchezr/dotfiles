@@ -18,13 +18,10 @@ alias rd='rmdir'
 
 # git
 alias git-log="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold cyan)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias git-cleanup="git branch -vv | grep origin | grep gone | awk '{print $1}' | xargs -L 1 git branch -D"
+alias git-changelog="git log --invert-grep --grep=CI --pretty='format:%cs %s'"
 
 # docker-compose
-alias dcp="docker-compose"
-alias dcp-logs="docker-compose logs -f --tail 100"
+alias d="docker"
+alias dc="docker-compose"
+alias dc-logs="docker-compose logs -f --tail 100"
 
-# custom internal tools
-alias journal='./journal.sh'
-alias til='./til.sh'
-alias wiki='./wiki.sh'

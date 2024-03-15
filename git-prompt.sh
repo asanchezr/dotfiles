@@ -60,5 +60,7 @@ function git_prompt {
 # original git-prompt
 # export PS1=\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$
 
-PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[36m\]\u@\h \[\033[33m\]\w \[$(git_color)\]$(git_prompt)\[\033[0m\]'$'\n$ '
+# PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[36m\]\u@\h \[\033[33m\]\w \[$(git_color)\]$(git_prompt)\[\033[0m\]'$' $ '
+
+PS1='\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[33m\]\w \[$(git_color)\]$(git_prompt)\[\033[0m\]'$'$ '
 export PS1
