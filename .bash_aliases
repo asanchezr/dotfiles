@@ -18,7 +18,7 @@ alias rd='rmdir'
 
 # git
 alias git-log="git log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold cyan)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias git-changelog="git log --invert-grep --grep=CI --pretty='format:%cs %s'"
+alias git-changelog="git log --invert-grep --grep=CI --pretty='format:%s'"
 
 # docker-compose
 alias d="docker"
