@@ -1,4 +1,0 @@
-#!/bin/bash
-
-export VISUAL=code
-export EDITOR="$VISUAL"

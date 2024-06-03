@@ -70,7 +70,7 @@ function git-prune() {
   local branch_pattern=${1:-}
   local BRANCHES=$(git for-each-ref --format="%(refname:short)" refs/heads/$branch_pattern*)
   declare -a test_array=($BRANCHES)
-  
+
   for branch in "${test_array[@]}"
   do
     read -p "Delete branch $branch? [Y/n] " answer
